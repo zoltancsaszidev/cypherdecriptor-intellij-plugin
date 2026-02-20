@@ -1,0 +1,7 @@
+<idea-plugin>
+    <extensions defaultExtensionNs="com.intellij">
+        <codeInsight.inlayProvider
+                language="Properties"
+                implementationClass="com.csaszi.cipherdecryptor.hints.CipherInlayHintsProvider"/>
+    </extensions>
+</idea-plugin>

@@ -1,0 +1,63 @@
+<idea-plugin>
+    <id>com.csaszi.cipher-decryptor</id>
+    <name>Cipher Decryptor</name>
+    <vendor email="zoltan.csaszi@bvtech.io" url="https://bvgroup.com">BV Group</vendor>
+
+    <description><![CDATA[
+    Decrypts {cipher}... values in configuration files using a configured Java KeyStore.
+    <br><br>
+    Features:
+    <ul>
+        <li>Configure Java KeyStore (.jks) file location</li>
+        <li>Set keystore alias, password, and secret</li>
+        <li>View decrypted values as hints in the editor</li>
+        <li>Supports properties and YAML configuration files</li>
+    </ul>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends optional="true" config-file="yaml-support.xml">org.jetbrains.plugins.yaml</depends>
+    <depends optional="true" config-file="properties-support.xml">com.intellij.properties</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Settings -->
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.csaszi.cipherdecryptor.settings.CipherDecryptorConfigurable"
+                id="com.csaszi.cipherdecryptor.settings"
+                displayName="Cipher Decryptor"/>
+        
+        <applicationService
+                serviceInterface="com.csaszi.cipherdecryptor.settings.CipherDecryptorSettings"
+                serviceImplementation="com.csaszi.cipherdecryptor.settings.CipherDecryptorSettings"/>
+
+        <!-- Inlay hints provider for all text-like files -->
+        <codeInsight.inlayProvider
+                language="TEXT"
+                implementationClass="com.csaszi.cipherdecryptor.hints.CipherInlayHintsProvider"/>
+        
+        <!-- Annotator for tooltip on hover - works on all languages -->
+        <annotator
+                language="TEXT"
+                implementationClass="com.csaszi.cipherdecryptor.annotator.CipherAnnotator"/>
+        
+        <!-- Decryption service -->
+        <applicationService
+                serviceInterface="com.csaszi.cipherdecryptor.crypto.DecryptionService"
+                serviceImplementation="com.csaszi.cipherdecryptor.crypto.DecryptionService"/>
+        
+        <!-- Notification group -->
+        <notificationGroup id="Cipher Decryptor" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <action id="com.csaszi.cipherdecryptor.DecryptCipherAction"
+                class="com.csaszi.cipherdecryptor.actions.DecryptCipherAction"
+                text="Decrypt Cipher Value"
+                description="Decrypt the cipher value at cursor">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt D"/>
+        </action>
+    </actions>
+</idea-plugin>
