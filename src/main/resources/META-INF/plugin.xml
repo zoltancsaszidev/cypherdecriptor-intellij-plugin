@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.csaszi.cipher-decryptor</id>
     <name>Cipher Decryptor</name>
-    <vendor email="zoltan.csaszi@bvtech.io" url="https://bvgroup.com">BV Group</vendor>
+    <vendor email="zoltan.csaszi.dev@gmail.com" url="https://github.com/zoltancsaszidev/cypherdecriptor-intellij-plugin">Zoltán Császi</vendor>
 
     <description><![CDATA[
     Decrypts {cipher}... values in configuration files using a configured Java KeyStore.
