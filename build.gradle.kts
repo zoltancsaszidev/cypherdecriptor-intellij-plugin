@@ -1,11 +1,11 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.21"
-    id("org.jetbrains.intellij.platform") version "2.11.0"
+    id("org.jetbrains.kotlin.jvm") version "2.0.21"
+    id("org.jetbrains.intellij.platform") version "2.13.1"
 }
 
 group = "com.csaszi"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -21,7 +21,7 @@ dependencies {
     implementation("org.bouncycastle:bcpkix-jdk18on:1.77")
     
     intellijPlatform {
-        intellijIdea("2025.3.2")
+        intellijIdea("2026.1")
         bundledPlugin("com.intellij.java")
         bundledPlugin("org.jetbrains.plugins.yaml")
         bundledPlugin("com.intellij.properties")
