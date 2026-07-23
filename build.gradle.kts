@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.csaszi"
-version = "1.0.2"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
@@ -21,7 +21,7 @@ dependencies {
     implementation("org.bouncycastle:bcpkix-jdk18on:1.77")
     
     intellijPlatform {
-        intellijIdea("2026.1")
+        intellijIdea("2026.2")
         bundledPlugin("com.intellij.java")
         bundledPlugin("org.jetbrains.plugins.yaml")
         bundledPlugin("com.intellij.properties")
@@ -43,7 +43,7 @@ intellijPlatform {
     pluginConfiguration {
         ideaVersion {
             sinceBuild = "253"
-            untilBuild = "261.*"
+            untilBuild = "262.*"
         }
     }
     
