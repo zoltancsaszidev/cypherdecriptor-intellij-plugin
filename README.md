@@ -68,8 +68,8 @@ spring.datasource.password={cipher}AQBHYmJLOGh2L2VOc...
 
 ## Requirements
 
-- IntelliJ IDEA 2023.3 or later
-- Java 17 or later
+- IntelliJ IDEA 2025.3 or later
+- Java 21 or later
 
 ## License
 
