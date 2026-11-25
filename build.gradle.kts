@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.csaszi"
-version = "1.0.5"
+version = "1.0.6"
 
 repositories {
     mavenCentral()
@@ -21,7 +21,7 @@ dependencies {
     implementation("org.bouncycastle:bcpkix-jdk18on:1.77")
     
     intellijPlatform {
-        intellijIdea("2026.3")
+        intellijIdea("2026.3.0.1")
         bundledPlugin("com.intellij.java")
         bundledPlugin("org.jetbrains.plugins.yaml")
         bundledPlugin("com.intellij.properties")
